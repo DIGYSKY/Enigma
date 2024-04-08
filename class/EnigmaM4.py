@@ -1,0 +1,2 @@
+class EnigmaM4:
+  
