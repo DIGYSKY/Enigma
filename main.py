@@ -13,7 +13,7 @@ YELLOW = (255, 255, 0)
 
 # Définir les dimensions de la fenêtre
 WINDOW_WIDTH = 800
-WINDOW_HEIGHT = 300
+WINDOW_HEIGHT = 600
 
 # Définir les dimensions et la disposition des touches du clavier
 KEY_WIDTH = 50
@@ -84,18 +84,37 @@ while running:
                 if highlighted_key is not None and letter == highlighted_key:
                     keys_pressed = set()  # Retirer la touche de l'ensemble des touches enfoncées
                     highlighted_key = None  # Réinitialiser la touche mise en surbrillance
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_pos = pygame.mouse.get_pos()
+            # Vérifiez si le clic de souris se produit à l'intérieur de la zone de texte
+            if text_rect.collidepoint(mouse_pos):
+                editing_mode = True
+            else:
+                editing_mode = False
 
     # Effacer l'écran
     window.fill(WHITE)
 
+    text_surface_top = font.render('Encrypted message :', True, BLACK)
+    text_rect_top = text_surface_top.get_rect(center=(WINDOW_WIDTH // 2, TEXT_HEIGHT))
+    window.blit(text_surface_top, text_rect_top)
+
     # Dessiner la zone de texte au-dessus du clavier
     text_surface_top = font.render(Enigma.getEcryptLetters(), True, BLACK)
-    text_rect_top = text_surface_top.get_rect(center=(WINDOW_WIDTH // 2, TEXT_HEIGHT // 2))
+    text_rect_top = text_surface_top.get_rect(center=(WINDOW_WIDTH // 2, TEXT_HEIGHT * 2))
     window.blit(text_surface_top, text_rect_top)
 
     # Dessiner la zone de texte en dessous du clavier
     text_surface_bottom = font.render(letters, True, BLACK)
     text_rect_bottom = text_surface_bottom.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT - TEXT_HEIGHT // 2))
+    window.blit(text_surface_bottom, text_rect_bottom)
+
+    text_surface_bottom = font.render('Rotors Config :', True, BLACK)
+    text_rect_bottom = text_surface_bottom.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT - (TEXT_HEIGHT*4.5) // 2))
+    window.blit(text_surface_bottom, text_rect_bottom)
+
+    text_surface_bottom = font.render(Enigma.getConfig(), True, BLACK)
+    text_rect_bottom = text_surface_bottom.get_rect(center=(WINDOW_WIDTH // 2, WINDOW_HEIGHT - (TEXT_HEIGHT*3) // 2))
     window.blit(text_surface_bottom, text_rect_bottom)
 
     # Dessiner les touches du clavier

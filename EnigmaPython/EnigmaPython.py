@@ -1,4 +1,5 @@
 import numpy as np
+import os
 
 class EnigmaPython:
 	alpha = np.array([
@@ -40,14 +41,24 @@ class EnigmaPython:
 	rotorPos = np.zeros(3)
 	frontPannelConf = np.arange(26)
 	encryptLetters = ''
+
+	def __init__(self) -> None:
+		if os.path.exists('rotorPos.npy'):
+			# Charger le tableau à partir du fichier .npy
+			self.rotorPos = np.load('rotorPos.npy')
+
+	def getConfig(self):
+		my_string = ', '.join(str(x) for x in self.rotorPos)
+		return my_string
 		
-	def moveRotors(self):
+	def moveRotors(self) -> None:
 		self.rotorPos[0] += 1
 		
 		for i in range(1, len(self.rotorPos)):
-			self.rotorPos[i] = np.where(self.rotorPos[i-1] > 26, self.rotorPos[i] + 1, 0)
+			self.rotorPos[i] = np.where(self.rotorPos[i-1] > 25, self.rotorPos[i] + 1, self.rotorPos[i])
 			
-		self.rotorPos[0] = np.where(self.rotorPos[0] > 26, 0, self.rotorPos[0])
+		for i in range(0, len(self.rotorPos)):
+			self.rotorPos[i] = np.where(self.rotorPos[i] > 25, 0, self.rotorPos[i])
 	
 	def getEcryptLetters(self):
 		return self.encryptLetters
@@ -64,21 +75,22 @@ class EnigmaPython:
 
 		enc = self.toCase(self.frontPanel(self.calculatePosOutRotors(self.frontPanel(num))))
 		self.moveRotors()
+		np.save('rotorPos.npy', self.rotorPos)
 
 		return enc
  
 	def calculatePosOutRotors(self, num):
-		pos = (num + int(self.rotorPos[0])) % 26  # Utilisation de l'opérateur modulo pour gérer les débordements
+		pos = (num + int(self.rotorPos[0])) % 26
 		pos = int(self.rotorRedirect[0, pos])
 
 		for i in range(1, len(self.rotorRedirect)):
-			pos = (pos + int(self.rotorPos[i])) % 26  # Utilisation de l'opérateur modulo pour gérer les débordements
+			pos = (pos + int(self.rotorPos[i])) % 26
 			pos = int(self.rotorRedirect[i, pos])
 
 		pos = int(self.rotorFixed[pos])
 
-		for i in range(0, len(self.rotorRedirect)):
-			pos = (pos + int(self.rotorPos[-i])) % 26  # Utilisation de l'opérateur modulo pour gérer les débordements
+		for i in range(1, len(self.rotorRedirect) + 1):
+			pos = (pos + int(self.rotorPos[-i])) % 26
 			pos = int(self.rotorRedirect[-i, pos])
 
 		return pos
