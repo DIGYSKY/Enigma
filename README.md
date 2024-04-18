@@ -42,4 +42,4 @@ This Python program simulates the workings of the [Enigma machine](https://en.wi
 This program is licensed under the GNU License. See the [LICENSE](LICENSE) file for details.
 
 ## Author
-Created by [DIGYSKY]
+Created by [DIGYSKY](https://github.com/DIGYSKY)
