@@ -39,7 +39,7 @@ This Python program simulates the workings of the [Enigma machine](https://en.wi
 - The NumPy library is used for numerical computations.
 
 ## License
-This program is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This program is licensed under the GNU License. See the [LICENSE](LICENSE) file for details.
 
 ## Author
 Created by [DIGYSKY]
