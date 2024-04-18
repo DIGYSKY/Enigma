@@ -3,7 +3,7 @@
 ![Enigma Machine](https://media.ouest-france.fr/v1/pictures/MjAyMTA2Y2FiZWJmY2UzYmQwYTk5YWMwMDk1NDk5ZmQ4MWE0MGI?width=1260&height=708&focuspoint=50%2C50&cropresize=1&client_id=bpeditorial&sign=d7ab2964dc59fc956612670c81ce0545ae38ab5f47119dc6a77209d42407ed54)
 
 ## Description
-This Python program simulates the workings of the Enigma machine, the encryption device used by the Germans during World War II. The simulation includes the plugboard, rotors, reflector, and lampboard, replicating the key components of the original Enigma machine.
+This Python program simulates the workings of the [Enigma machine](https://en.wikipedia.org/wiki/Enigma_machine), the encryption device used by the Germans during World War II. The simulation includes the plugboard, rotors, reflector, and lampboard, replicating the key components of the original Enigma machine.
 
 ## Features
 - **Plugboard**: Simulates the plugboard connections. [in progress]
@@ -34,7 +34,7 @@ This Python program simulates the workings of the Enigma machine, the encryption
 ![Screenshot 2](screen2.png)
 
 ## Acknowledgements
-- This program is inspired by the original Enigma machine used during World War II.
+- This program is inspired by the original Enigma machine used during [World War II](https://en.wikipedia.org/wiki/World_War_II).
 - The Pygame library is used for graphical display.
 - The NumPy library is used for numerical computations.
 
