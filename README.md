@@ -34,7 +34,7 @@ This Python program simulates the workings of the [Enigma machine](https://en.wi
 ![Screenshot 2](screen2.png)
 
 ## Acknowledgements
-- This program is inspired by the original Enigma machine used during [World War II](https://en.wikipedia.org/wiki/World_War_II).
+- This program is inspired by the original [Enigma machine](https://en.wikipedia.org/wiki/Enigma_machine) used during [World War II](https://en.wikipedia.org/wiki/World_War_II).
 - The Pygame library is used for graphical display.
 - The NumPy library is used for numerical computations.
 
