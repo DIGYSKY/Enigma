@@ -25,9 +25,9 @@ This Python program simulates the workings of the Enigma machine, the encryption
    ```
 3. Run the program:
    ```
-   python enigma.py
+   python main.py
    ```
-4. Use the graphical interface to input text and observe the encrypted output.
+4. Use your keyboard interface to input text and observe the encrypted output.
 
 ## Screenshots
 ![Screenshot 1](screen1.png)
