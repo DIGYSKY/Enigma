@@ -1,7 +1,3 @@
-Voici un exemple de README pour votre programme Python reproduisant l'algorithme de la première machine Enigma utilisée par les Allemands pendant la Seconde Guerre mondiale, avec affichage utilisant Pygame et l'algorithme utilisant NumPy :
-
----
-
 # Enigma Machine Simulator
 
 ![Enigma Machine](https://media.ouest-france.fr/v1/pictures/MjAyMTA2Y2FiZWJmY2UzYmQwYTk5YWMwMDk1NDk5ZmQ4MWE0MGI?width=1260&height=708&focuspoint=50%2C50&cropresize=1&client_id=bpeditorial&sign=d7ab2964dc59fc956612670c81ce0545ae38ab5f47119dc6a77209d42407ed54)
